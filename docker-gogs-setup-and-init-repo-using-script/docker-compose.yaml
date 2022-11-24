@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  gogs:
+    image: gogs/gogs:0.12.10
+    ports:
+      - "18080:3000"
+      - "10022:22"
+    environment:
+      - ADMIN_USER_PASSWORD=gogsadmin123
+#  gogs-init:
+#    image: python:3.9-slim-buster
+#    environment:
+#      - GOGS_TOKEN=gogsadmin123
+#    command:
+#      - python3 /scripts/repo-init.py
+#    volumes:
+#      - ./repo-init.py:/scripts/repo-init.py
+#      - ./code.zip:/scripts/code.zip
+  xyz:
+    image: bhuwan/xyz
+    container_name: xyz
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "80"]

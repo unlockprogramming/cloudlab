@@ -1,0 +1,5 @@
+###
+http://localhost:8080/tokenize?text=I eat rice. I like banana.&token_type=WORDS
+
+###
+http://localhost:8080/tokenize?text=I eat rice. I like banana.&token_type=SENTENCES
