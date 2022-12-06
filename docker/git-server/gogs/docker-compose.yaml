@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  gogs:
+    image: gogs/gogs:0.12.10
+    ports:
+      - "3000:3000"
+      - "3022:22"
+    volumes:
+      - ./data/conf/app.ini:/data/gogs/conf/app.ini
+      - gogs_data:/data/gogs/data
+      - gogs_repo_data:/data/git/gogs-repositories
+volumes:
+  gogs_data:
+  gogs_repo_data:
