@@ -1,11 +1,16 @@
+#!/bin/bash
+
+set -e
 
 required_version=$1
+requirements_txt=${2:-requirements.txt}
 if [ -z "$required_version" ]
   then
     echo "No 1st argument as required_version"
     echo "Usage: curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/pyenv-install.sh | bash -s -- 3.7.12"
     exit 1
 fi
+
 #!/bin/bash
 
 set -e
@@ -43,4 +48,4 @@ fi
 pyenv_sh_rc_shell
 pyenv_required_version
 pip_venv
-pip install -r requirements.txt
+pip install -r $requirements_txt
