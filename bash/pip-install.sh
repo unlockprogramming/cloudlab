@@ -42,7 +42,7 @@ if [ ! -f "$pip_install_config" ]; then
 EOT
   echo "Config file generated: $pip_install_config"
   echo "Fix config file: $pip_install_config"
-  echo "Retry: curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/pip-install.sh | bash"
+  echo "Retry: curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/pip-install.sh | bash"
 else
   exec_pip_install
 fi
