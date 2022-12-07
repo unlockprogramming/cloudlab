@@ -31,13 +31,14 @@ pip_venv() {
 
 pyenv_sh_rc_shell
 
+source .pyenvshrc
 if ! [ -x "$(command -v pyenv)" ]; then
   echo 'Error: pyenv is not installed.' >&2
   echo "source .pyenvshrc"
   curl https://pyenv.run | bash
 fi
-
 source .pyenvshrc
+
 pyenv_required_version
 pip_venv
 pip install -r $requirements_txt
