@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 required_version=$1
 requirements_txt=${2:-requirements.txt}
 if [ -z "$required_version" ]
@@ -10,10 +8,6 @@ if [ -z "$required_version" ]
     echo "Usage: curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/pyenv-install.sh | bash -s -- 3.7.12"
     exit 1
 fi
-
-#!/bin/bash
-
-required_version=$1
 
 pyenv_sh_rc_shell() {
   rm -rf .pyenvshrc
@@ -35,7 +29,6 @@ pip_venv() {
   source venv/bin/activate
 }
 
-source .pyenvshrc
 pyenv_sh_rc_shell
 
 if ! [ -x "$(command -v pyenv)" ]; then
@@ -44,6 +37,7 @@ if ! [ -x "$(command -v pyenv)" ]; then
   curl https://pyenv.run | bash
 fi
 
+source .pyenvshrc
 pyenv_required_version
 pip_venv
 pip install -r $requirements_txt
