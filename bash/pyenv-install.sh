@@ -7,7 +7,7 @@ requirements_txt=${2:-requirements.txt}
 if [ -z "$required_version" ]
   then
     echo "No 1st argument as required_version"
-    echo "Usage: curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/pyenv-install.sh | bash -s -- 3.7.12"
+    echo "Usage: curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/pyenv-install.sh | bash -s -- 3.7.12"
     exit 1
 fi
 
