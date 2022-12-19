@@ -25,8 +25,8 @@ pip_venv() {
   python -m pip install --user virtualenv
   python -m pip install --upgrade pip
 
-  virtualenv venv
-  source venv/bin/activate
+  virtualenv .venv
+  source .venv/bin/activate
 }
 
 pyenv_sh_rc_shell
