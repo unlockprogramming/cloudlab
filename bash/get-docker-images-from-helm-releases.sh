@@ -9,10 +9,8 @@ for row in $(helm list --all-namespaces -o json | jq -r '.[] | .name + ";" + .na
   namespace=$(echo "$row" | awk -F';' '{print $2}')
   chart=$(echo "$row" | awk -F';' '{print $3}')
   echo ""
-  echo "--------------------------------------------"
+  echo "-------------------------------------------------------------------------------------"
   echo "release => $chart | $release_name | $namespace"
-  echo "--------------------------------------------"
-  helm images get "$release_name" -n "$namespace" --from-release
-  echo ""
-  
+  echo "-------------------------------------------------------------------------------------"
+  helm images get "$release_name" -n "$namespace" --from-release | sort | uniq
 done
