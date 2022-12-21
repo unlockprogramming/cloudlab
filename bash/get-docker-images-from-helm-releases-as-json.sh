@@ -25,7 +25,7 @@ get_helm_charts_images "helm list --all-namespaces --pending -o json"
 
 echo "{" >>"$json_file"
 cat "$log_file" | sort | uniq | awk '{ print "\""$1"\"""," }' >>"$json_file"
-echo "\"nginx:latest\"" >>"$json_file"
+echo "\"-------\"" >>"$json_file"
 echo "}" >>"$json_file"
 cat "$json_file"
 
