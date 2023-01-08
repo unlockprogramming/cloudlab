@@ -11,7 +11,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 echo -e "source \"\$HOME/.profile\"" | tee -a ~/.zshrc
 
-sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"passion\"/g' ~/.zshrc
+#sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"passion\"/g' ~/.zshrc
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions kubectl /g' ~/.zshrc
 
 source ~/.zshrc
