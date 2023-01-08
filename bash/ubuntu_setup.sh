@@ -117,9 +117,9 @@ nvm version
 sudo apt install nfs-common nfs-kernel-server -y
 
 ### go setup ------------------------------------------------------
-rm -rf /usr/local/go
+sudo rm -rf /usr/local/go
 curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linux-amd64.tar.gz
-tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C /usr/local
+sudo tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C /usr/local
 go version
 
 ### docker setup ------------------------------------------------------
