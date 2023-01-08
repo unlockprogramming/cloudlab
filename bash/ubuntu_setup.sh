@@ -121,7 +121,7 @@ sudo apt install nfs-common nfs-kernel-server -y
 curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linux-amd64.tar.gz
 tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C $HOME
 echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
-echo -e "export PATH=\"\$HOME/go:\$PATH\"" | tee -a ~/.zshrc
+echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
 
 source ~/.zshrc
 go version
