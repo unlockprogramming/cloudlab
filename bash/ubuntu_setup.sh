@@ -18,6 +18,11 @@ sudo apt-get install -y \
   wget \
   make
 
+## zsh ------------------------------------------------------
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 ### python setup ------------------------------------------------------
 sudo apt install -y python3-pip python3-dev
 
@@ -27,6 +32,18 @@ sudo apt install -y python3-pip python3-dev
 sudo -H pip3 install --upgrade pip
 sudo -H pip3 install virtualenv
 virtualenv --version
+
+### pyenv setup ------------------------------------------------------
+curl https://pyenv.run | bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+exec "$SHELL" # Or just restart your terminal
+pyenv install --list
+
+### sdkman setup ------------------------------------------------------
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 ### aws setup ------------------------------------------------------
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -77,6 +94,15 @@ terraform version
 ### jq setup ------------------------------------------------------
 sudo apt-get install jq -y
 jq --version
+
+### yq setup ------------------------------------------------------
+sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+sudo chmod a+x /usr/local/bin/yq
+yq --version
+
+### nvm setup ------------------------------------------------------
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+nvm version
 
 ### nfs setup ------------------------------------------------------
 sudo apt install nfs-common nfs-kernel-server -y
