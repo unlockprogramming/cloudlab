@@ -1,3 +1,6 @@
+mkdir -p /tmp/tools
+cd /tmp/tools
+
 ### apt packages ------------------------------------------------------
 sudo apt update && sudo apt -y upgrade && sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get install -y \
