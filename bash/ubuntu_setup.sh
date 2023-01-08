@@ -9,8 +9,6 @@ cd /tmp/tools
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-echo -e "source \"\$HOME/.profile\"" | tee -a ~/.zshrc
-
 #sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"passion\"/g' ~/.zshrc
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions kubectl /g' ~/.zshrc
 
@@ -121,10 +119,6 @@ sudo apt install nfs-common nfs-kernel-server -y
 curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linux-amd64.tar.gz
 tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C $HOME
 echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
-echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
-
-source ~/.zshrc
-go version
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
