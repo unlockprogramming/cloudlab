@@ -11,8 +11,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 #sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"passion\"/g' ~/.zshrc
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions kubectl /g' ~/.zshrc
+echo -e "export PATH=\"\$HOME/.local/bin:\$HOME/bin:/usr/local/bin:\$PATH\"" | tee -a ~/.zshrc
 
-source ~/.zshrc
+exec "$SHELL" # Or just restart your terminal
 
 ### apt packages ------------------------------------------------------
 sudo apt update && sudo apt -y upgrade && sudo apt-get update && sudo apt-get -y upgrade
@@ -116,9 +117,10 @@ nvm version
 sudo apt install nfs-common nfs-kernel-server -y
 
 ### go setup ------------------------------------------------------
+rm -rf /usr/local/go
 curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linux-amd64.tar.gz
-tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C $HOME
-echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
+tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C /usr/local
+go version
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
