@@ -116,10 +116,11 @@ nvm version
 sudo apt install nfs-common nfs-kernel-server -y
 
 ### go setup ------------------------------------------------------
-sudo rm -rf /usr/local/go
-curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linux-amd64.tar.gz
-sudo tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C /usr/local
-go version
+curl -L https://dl.google.com/go/go1.18.9.linux-amd64.tar.gz >/tmp/go1.18.9.linux-amd64.tar.gz
+tar -xf /tmp/go1.18.9.linux-amd64.tar.gz -C $HOME
+echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
+echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
+source ~/.zshrc
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
