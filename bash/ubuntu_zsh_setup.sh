@@ -8,7 +8,7 @@ cd /tmp/tools
 # curl & zsh ------------------------------------------------------
 
 ```bash
-sudo apt install curl zsh git -y
+sudo apt-get install -y curl zsh git
 ```
 
 ## zsh ------------------------------------------------------
