@@ -78,6 +78,13 @@ jq --version
 ### nfs setup ------------------------------------------------------
 sudo apt install nfs-common nfs-kernel-server -y
 
+### go setup ------------------------------------------------------
+curl -L https://dl.google.com/go/go1.18.9.linux-amd64.tar.gz >/tmp/go1.18.9.linux-amd64.tar.gz
+tar -xf /tmp/go1.18.9.linux-amd64.tar.gz -C $HOME
+echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.bashrc
+echo -e "export PATH=\"\$HOME/go:\$PATH\"" | tee -a ~/.bashrc
+go version
+
 ### docker setup ------------------------------------------------------
 sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
