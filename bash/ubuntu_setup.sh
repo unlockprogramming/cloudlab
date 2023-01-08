@@ -1,5 +1,17 @@
+#!/bin/zsh
+
+set -e
+
 mkdir -p /tmp/tools
 cd /tmp/tools
+
+### zsh plugins ------------------------------------------------------
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo -e "source \"\$HOME/.profile\"" | tee -a ~/.zshrc
+
+source ~/.zshrc
 
 ### apt packages ------------------------------------------------------
 sudo apt update && sudo apt -y upgrade && sudo apt-get update && sudo apt-get -y upgrade
@@ -105,8 +117,8 @@ sudo apt install nfs-common nfs-kernel-server -y
 ### go setup ------------------------------------------------------
 curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linux-amd64.tar.gz
 tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C $HOME
-echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.bashrc
-echo -e "export PATH=\"\$HOME/go:\$PATH\"" | tee -a ~/.bashrc
+echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
+echo -e "export PATH=\"\$HOME/go:\$PATH\"" | tee -a ~/.zshrc
 go version
 
 ### docker setup ------------------------------------------------------
