@@ -13,7 +13,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions kubectl /g' ~/.zshrc
 echo -e "export PATH=\"\$HOME/.local/bin:\$HOME/bin:/usr/local/bin:\$PATH\"" | tee -a ~/.zshrc
 
-exec "$SHELL" # Or just restart your terminal
+source ~/.zshrc
 
 ### apt packages ------------------------------------------------------
 sudo apt update && sudo apt -y upgrade && sudo apt-get update && sudo apt-get -y upgrade
@@ -47,8 +47,7 @@ curl https://pyenv.run | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-exec "$SHELL" # Or just restart your terminal
-pyenv install --list
+source ~/.zshrc
 
 ### sdkman setup ------------------------------------------------------
 curl -s "https://get.sdkman.io" | bash
