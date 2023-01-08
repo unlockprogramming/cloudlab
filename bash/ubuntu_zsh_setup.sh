@@ -10,4 +10,6 @@ cd /tmp/tools
 sudo apt-get install -y curl zsh git
 
 ## zsh ------------------------------------------------------
-sh -c "$(echo y | curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+sudo reboot
