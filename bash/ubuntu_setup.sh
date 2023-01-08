@@ -18,13 +18,6 @@ sudo apt-get install -y \
   wget \
   make
 
-## zsh ------------------------------------------------------
-sh -c "$(echo y | curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-echo -e "source \"\$HOME/.profile\"" | tee -a ~/.zshrc
-
 ### python setup ------------------------------------------------------
 sudo apt install -y python3-pip python3-dev
 
