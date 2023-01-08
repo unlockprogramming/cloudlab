@@ -116,11 +116,13 @@ nvm version
 sudo apt install nfs-common nfs-kernel-server -y
 
 ### go setup ------------------------------------------------------
-curl -L https://dl.google.com/go/go1.18.9.linux-amd64.tar.gz >/tmp/go1.18.9.linux-amd64.tar.gz
-tar -xf /tmp/go1.18.9.linux-amd64.tar.gz -C $HOME
-echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
-echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
-source ~/.zshrc
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+source $HOME/.gvm/scripts/gvm
+gvm install go1.4
+gvm use go1.4
+export GOROOT_BOOTSTRAP=$GOROOT
+gvm install go1.19
+go version
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
