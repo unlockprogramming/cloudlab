@@ -29,3 +29,20 @@ pyenv --version && \
 nvm ls && \
 sdk version
 ```
+
+## SSH Setup
+
+```
+ssh-keygen -q -N "" -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+```
+ - Note: Add this public key to your IAM user > Security Credential > Upload SSH Key
+ - Add ssh config for codecommit
+ 
+`vi ~/.ssh/config`
+
+```
+Host git-codecommit.*.amazonaws.com
+  User <IAM_SSH_KEY_ID>
+  IdentityFile ~/.ssh/gitops
+```
