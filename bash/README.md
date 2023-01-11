@@ -46,3 +46,8 @@ Host git-codecommit.*.amazonaws.com
   User <IAM_SSH_KEY_ID>
   IdentityFile ~/.ssh/gitops
 ```
+
+```
+chmod 600 ~/.ssh/id_rsa
+eval "$(ssh-agent)" && ssh-add ~/.ssh/id_rsa
+```
