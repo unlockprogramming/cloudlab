@@ -2,6 +2,9 @@
 
 set -e
 
+mkdir -p /tmp/tools
+cd /tmp/tools
+
 ### zsh plugins ------------------------------------------------------
 
 rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -34,8 +37,6 @@ sudo apt-get install -y \
 ### python setup ------------------------------------------------------
 sudo apt install -y python3-pip python3-dev
 
-### BEGIN: common setup ------------------------------------------------------
-
 ### virtualenv setup ------------------------------------------------------
 sudo -H pip3 install --upgrade pip
 sudo -H pip3 install virtualenv
@@ -65,7 +66,7 @@ rm -rf awscliv2.zip
 aws --version
 
 ### aws-iam-authenticator setup ------------------------------------------------------
-curl -Lo aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.5.9/aws-iam-authenticator_0.5.9_linux_arm64
+curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/arm64/aws-iam-authenticator
 chmod +x ./aws-iam-authenticator
 sudo mv ./aws-iam-authenticator /usr/local/bin/
 aws-iam-authenticator version
@@ -93,8 +94,6 @@ curl https://dl.min.io/client/mc/release/linux-arm64/mc --create-dirs -o mc
 chmod +x mc
 sudo mv ./mc /usr/local/bin/
 mc ls
-
-### END: common setup ------------------------------------------------------
 
 ### terraform setup ------------------------------------------------------
 curl "https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_arm64.zip" -o "terraform_1.3.7_linux_arm64.zip"
@@ -124,11 +123,12 @@ curl -L https://dl.google.com/go/go1.19.4.linux-arm64.tar.gz >/tmp/go1.19.4.linu
 tar -xf /tmp/go1.19.4.linux-arm64.tar.gz -C $HOME
 echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
 echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
+# source ~/.zshrc
+# go version
 
 ### tilt setup ------------------------------------------------------
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 tilt version
-
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
