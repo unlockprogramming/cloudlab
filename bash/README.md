@@ -1,16 +1,29 @@
 
+## Ubuntu
+* Ubuntu `zsh`
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu_zsh.sh)"
+```
+
 * Ubuntu `Arm64`
 
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu_zsh.sh)"
+```zsh
 curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu-arm64.sh | zsh
-exec "$SHELL"
 ```
 
 * Ubuntu `Amd64`
 
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu_zsh.sh)"
+```zsh
 curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu-amd64.sh | zsh
-exec "$SHELL"
+```
+
+* Verifiying tools
+
+```zsh
+aws --version && \
+go version && \
+pyenv --version && \
+nvm ls && \
+sdk version
 ```
