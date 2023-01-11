@@ -47,14 +47,14 @@ curl https://pyenv.run | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-source ~/.zshrc
-pyenv --version
+# source ~/.zshrc
+# pyenv --version
 
 ### sdkman setup ------------------------------------------------------
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
-source ~/.zshrc
-sdk version
+# source ~/.zshrc
+# sdk version
 
 ### aws setup ------------------------------------------------------
 curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
