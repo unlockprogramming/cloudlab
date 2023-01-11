@@ -113,8 +113,7 @@ sudo chmod a+x /usr/local/bin/yq
 yq --version
 
 ### nvm setup ------------------------------------------------------
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | zsh
-nvm version
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 ### nfs setup ------------------------------------------------------
 sudo apt install nfs-common nfs-kernel-server -y
