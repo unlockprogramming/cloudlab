@@ -130,9 +130,15 @@ echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
 curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 tilt version
 
+### ctop setup ------------------------------------------------------
+sudo wget -qO /usr/local/bin/ctop https://github.com/bcicen/ctop/releases/download/v0.7.7/ctop-0.7.7-linux-amd64
+sudo chmod a+x /usr/local/bin/ctop
+ctop version
+
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1 sudo sh ./get-docker.sh
+sudo groupadd docker || true
 sudo usermod -aG docker $USER
 
 echo "Rebooting System..."
