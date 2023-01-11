@@ -133,7 +133,7 @@ tilt version
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1 sudo sh ./get-docker.sh
-sudo groupadd docker || true
 sudo usermod -aG docker $USER
 
+echo "Rebooting System..."
 sudo reboot
