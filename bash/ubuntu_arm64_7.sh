@@ -124,8 +124,6 @@ curl -L https://dl.google.com/go/go1.19.4.linux-arm64.tar.gz >/tmp/go1.19.4.linu
 tar -xf /tmp/go1.19.4.linux-arm64.tar.gz -C $HOME
 echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
 echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
-source ~/.zshrc
-go version
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
