@@ -22,6 +22,7 @@ set -e
 
 ### zsh plugins ------------------------------------------------------
 
+rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"passion\"/g' ~/.zshrc
