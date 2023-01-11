@@ -54,7 +54,7 @@ curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 ### aws setup ------------------------------------------------------
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
 unzip -qq awscliv2.zip
 sudo ./aws/install --update
 rm -rf ./awscli-bundle ./aws
@@ -74,11 +74,11 @@ sudo mv ./kubectl /usr/local/bin/
 kubectl version --client
 
 ### k9s setup ------------------------------------------------------
-curl -L https://github.com/derailed/k9s/releases/download/v0.24.15/k9s_Linux_x86_64.tar.gz >k9s_Linux_x86_64.tar.gz
-tar -xvf k9s_Linux_x86_64.tar.gz
+curl -L https://github.com/derailed/k9s/releases/download/v0.24.15/k9s_Linux_arm64.tar.gz >k9s_Linux_arm64.tar.gz
+tar -xvf k9s_Linux_arm64.tar.gz
 chmod +x k9s
 sudo mv ./k9s /usr/local/bin/
-rm -rf k9s_Linux_x86_64.tar.gz LICENSE README.md
+rm -rf k9s_Linux_arm64.tar.gz LICENSE README.md
 k9s version
 
 ### helm setup ------------------------------------------------------
