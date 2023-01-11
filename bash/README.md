@@ -2,4 +2,7 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu_zsh.sh)"
 curl https://raw.githubusercontent.com/unlockprogramming/cloudlab/main/bash/ubuntu-arm64.sh | zsh
 exec "$SHELL"
+go version
+nvm version
+pyenv --version
 ```
