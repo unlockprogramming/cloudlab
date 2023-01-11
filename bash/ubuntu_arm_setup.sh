@@ -94,9 +94,10 @@ sudo mv ./mc /usr/local/bin/
 ### END: common setup ------------------------------------------------------
 
 ### terraform setup ------------------------------------------------------
-wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update -y && sudo apt install terraform -y
+curl "https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_arm.zip" -o "terraform_1.3.7_linux_arm.zip"
+unzip -qq terraform_1.3.7_linux_arm.zip
+chmod +x terraform
+sudo mv ./terraform /usr/local/bin/
 terraform version
 
 ### jq setup ------------------------------------------------------
