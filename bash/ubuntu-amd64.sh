@@ -133,7 +133,6 @@ tilt version
 ### ctop setup ------------------------------------------------------
 sudo wget -qO /usr/local/bin/ctop https://github.com/bcicen/ctop/releases/download/v0.7.7/ctop-0.7.7-linux-amd64
 sudo chmod a+x /usr/local/bin/ctop
-ctop version
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
