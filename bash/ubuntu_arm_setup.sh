@@ -29,6 +29,7 @@ sudo apt-get install -y \
   git \
   uidmap \
   unzip \
+  zip \
   wget \
   make
 
