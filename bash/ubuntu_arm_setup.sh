@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 set -e
 
@@ -49,6 +49,7 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 source ~/.zshrc
+pyenv --version
 
 ### sdkman setup ------------------------------------------------------
 curl -s "https://get.sdkman.io" | bash
@@ -90,12 +91,13 @@ helm version
 curl https://dl.min.io/client/mc/release/linux-arm64/mc --create-dirs -o mc
 chmod +x mc
 sudo mv ./mc /usr/local/bin/
+mc ls
 
 ### END: common setup ------------------------------------------------------
 
 ### terraform setup ------------------------------------------------------
-curl "https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_arm.zip" -o "terraform_1.3.7_linux_arm.zip"
-unzip -qq terraform_1.3.7_linux_arm.zip
+curl "https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_arm64.zip" -o "terraform_1.3.7_linux_arm64.zip"
+unzip -qq terraform_1.3.7_linux_arm64.zip
 chmod +x terraform
 sudo mv ./terraform /usr/local/bin/
 terraform version
@@ -110,7 +112,7 @@ sudo chmod a+x /usr/local/bin/yq
 yq --version
 
 ### nvm setup ------------------------------------------------------
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | zsh
 nvm version
 
 ### nfs setup ------------------------------------------------------
