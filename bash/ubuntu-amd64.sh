@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 set -e
 
@@ -7,6 +7,7 @@ cd /tmp/tools
 
 ### zsh plugins ------------------------------------------------------
 
+rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"passion\"/g' ~/.zshrc
@@ -29,13 +30,12 @@ sudo apt-get install -y \
   git \
   uidmap \
   unzip \
+  zip \
   wget \
   make
 
 ### python setup ------------------------------------------------------
 sudo apt install -y python3-pip python3-dev
-
-### BEGIN: common setup ------------------------------------------------------
 
 ### virtualenv setup ------------------------------------------------------
 sudo -H pip3 install --upgrade pip
@@ -43,15 +43,19 @@ sudo -H pip3 install virtualenv
 virtualenv --version
 
 ### pyenv setup ------------------------------------------------------
+rm -rf ~/.pyenv
 curl https://pyenv.run | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-source ~/.zshrc
+# source ~/.zshrc
+# pyenv --version
 
 ### sdkman setup ------------------------------------------------------
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
+# source ~/.zshrc
+# sdk version
 
 ### aws setup ------------------------------------------------------
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -89,14 +93,13 @@ helm version
 curl https://dl.min.io/client/mc/release/linux-amd64/mc --create-dirs -o mc
 chmod +x mc
 sudo mv ./mc /usr/local/bin/
-
-### END: common setup ------------------------------------------------------
+mc ls
 
 ### terraform setup ------------------------------------------------------
-sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo apt-get update && sudo apt-get install terraform
+curl "https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_amd64.zip" -o "terraform_1.3.7_linux_amd64.zip"
+unzip -qq terraform_1.3.7_linux_amd64.zip
+chmod +x terraform
+sudo mv ./terraform /usr/local/bin/
 terraform version
 
 ### jq setup ------------------------------------------------------
@@ -110,7 +113,6 @@ yq --version
 
 ### nvm setup ------------------------------------------------------
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-nvm version
 
 ### nfs setup ------------------------------------------------------
 sudo apt install nfs-common nfs-kernel-server -y
@@ -121,9 +123,15 @@ curl -L https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz >/tmp/go1.19.4.linu
 tar -xf /tmp/go1.19.4.linux-amd64.tar.gz -C $HOME
 echo -e "export GOROOT=\"\$HOME/go\"" | tee -a ~/.zshrc
 echo -e "export PATH=\"\$HOME/go/bin:\$PATH\"" | tee -a ~/.zshrc
-source ~/.zshrc
-go version
+# source ~/.zshrc
+# go version
+
+### tilt setup ------------------------------------------------------
+curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+tilt version
 
 ### docker setup ------------------------------------------------------
 curl -fsSL https://get.docker.com -o get-docker.sh
 DRY_RUN=1 sudo sh ./get-docker.sh
+
+sudo reboot
